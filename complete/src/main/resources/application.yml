@@ -1,0 +1,22 @@
+#Available checks: content_scanning, schema_validation, deduplication
+#Using any other name would result in your configuration being invalid
+
+pipeline_configuration:
+  original_source: "/Users/koskinasm/Desktop/SampleFiles"
+  output: output
+  checks:
+    content_scanning:
+      status: true
+      input: original_source
+      output: schema_validation
+    schema_validation:
+      status: true
+      input: content_scanning
+      output: deduplication
+    deduplication:
+      status: true
+      input: content_scanning
+      output: output
+
+
+
