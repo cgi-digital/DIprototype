@@ -1,11 +1,11 @@
-package hello.checks;
+package uk.gov.homeoffice.checks;
 
 /**
  * Created by koskinasm on 09/02/2017.
  */
 public interface Check {
 
-    public boolean runCheck();
+    public CheckResult runCheck();
 
     public String getInput();
 

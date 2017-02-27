@@ -1,4 +1,4 @@
-package hello.checks;
+package uk.gov.homeoffice.checks;
 
 /**
  * Created by koskinasm on 10/02/2017.

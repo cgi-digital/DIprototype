@@ -1,4 +1,7 @@
-package hello.monitors;
+package uk.gov.homeoffice.monitors;
+
+import uk.gov.homeoffice.ApplicationConfiguration;
+import uk.gov.homeoffice.Pipeline;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -40,6 +43,9 @@ public class DirectoryMonitor implements Monitor{
                         if((watchEvent.kind()).equals(StandardWatchEventKinds.ENTRY_CREATE))
                         {
                             System.out.println("File: " + watchEvent.context().toString() + " has been received.");
+
+                            Pipeline pipeline = new Pipeline(ApplicationConfiguration.original_source, ApplicationConfiguration.output, ApplicationConfiguration.checks);
+                            pipeline.runChecks(watchEvent.context().toString());
                         }
                     }
                 }

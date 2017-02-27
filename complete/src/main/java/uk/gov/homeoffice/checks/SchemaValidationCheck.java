@@ -1,26 +1,25 @@
-package hello.checks;
+package uk.gov.homeoffice.checks;
 
 /**
  * Created by koskinasm on 09/02/2017.
  */
 
 
-public class ContentScanningCheck implements Check {
+public class SchemaValidationCheck implements Check {
 
     private String input;
     private String output;
     private boolean enabled;
 
-    public ContentScanningCheck(CheckSpecification specification)
+    public SchemaValidationCheck(CheckSpecification specification)
     {
         this.input = specification.getInput();
         this.output = specification.getOutput();
         this.enabled = specification.getStatus();
     }
 
-    @Override
-    public boolean runCheck() {
-        return true;
+    public CheckResult runCheck() {
+        return new CheckResult(true,null);
     }
 
     @Override

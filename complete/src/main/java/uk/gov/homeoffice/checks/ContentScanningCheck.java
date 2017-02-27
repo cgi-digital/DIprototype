@@ -1,18 +1,17 @@
-package hello.checks;
+package uk.gov.homeoffice.checks;
 
 /**
  * Created by koskinasm on 09/02/2017.
  */
 
 
-public class DeduplicationCheck implements Check {
-
+public class ContentScanningCheck implements Check {
 
     private String input;
     private String output;
     private boolean enabled;
 
-    public DeduplicationCheck(CheckSpecification specification)
+    public ContentScanningCheck(CheckSpecification specification)
     {
         this.input = specification.getInput();
         this.output = specification.getOutput();
@@ -20,8 +19,8 @@ public class DeduplicationCheck implements Check {
     }
 
     @Override
-    public boolean runCheck() {
-        return true;
+    public CheckResult runCheck() {
+        return new CheckResult(true,null);
     }
 
     @Override
@@ -43,5 +42,4 @@ public class DeduplicationCheck implements Check {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
 }
